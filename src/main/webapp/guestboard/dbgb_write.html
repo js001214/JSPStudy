@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>방명록 : 클라이언트 홈</title>
+<link href="filegb.css" rel="stylesheet" type="text/css">
+<style>
+	div {
+		width:800px;
+		margin-left:0 auto;
+	}
+</style>
+<script>
+	function check(){
+		with(document.filegbwrite){
+			if(name.value.length == 0){
+				alert("이름을 입력해 주세요");
+				name.focus();
+				return false;
+			}
+			if(email.value.length == 0){
+				alert("E-Mail 주소를 입력해 주세요");
+				email.focus();
+				return false;
+			}
+			if(subject.value.length == 0){
+				alert("제목을 입력해 주세요");
+				subject.focus();
+				return false;
+			}
+			if(content.value.length == 0){
+				alert("글 내용을 입력해 주세요");
+				content.focus();
+				return false;
+			}
+			document.filegbwrite.submit();
+		}
+	}
+</script>
+</head>
+<body>
+	<form name = "filegbwrite" method = "post" action="dbgb_save.jsp">
+	<div>
+		<table width="600px cellspacing="0" cellpadding="2">
+			<tr><td colspan = "2" bgcolor="#1F4F8F" height = "1"></td></tr>
+			<tr><td font-size="13px">글쓰기</td></tr>
+			<td>이름 : </td>
+			<td><input type = "text" name = "name" class="input_style1"></td>
+			<tr><td>Email : </td>
+				<td> <input type = "text" name = "email" class="input_style1"></td>
+			</tr>
+			<tr>
+			<tr><td>제목 : </td>
+			<td> <input type = "text" name = "subject" class="input_style1"></td>
+			</tr>
+			<tr>
+			<tr><td>내용 : </td>
+			<td> <textarea cols="65" rows="10" name="content" maxlength="2000"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan = "2" height="50px">&nbsp; </td>	<!-- 공백 -->
+			</tr>
+			<tr><td colspan="2" > <!-- 취소 / 확인 / 글쓰기 이미지를 처리 -->
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="28%">&nbsp;</td>
+					<td width="51%">&nbsp;</td>
+					<td width="12%">
+					<a href = "dbgb_show.jsp">
+					<img src="images/cancle.gif" width="46px" height="20px"></a></td>
+					<td width="9%">
+					<a href = "#" onclick = "check(this.form)" > <!-- check 함수를 javaScript로 만들어서 호출 -->
+					<img src="images/ok.gif" width="46px" height="20px"></a></td>
+				</tr>
+				</table>
+			</td>
+			</tr>
+		</table>
+	
+	</div>
+	</form>
+
+</body>
+</html>
